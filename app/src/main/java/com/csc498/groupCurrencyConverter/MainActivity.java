@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -23,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     public void onClick(View v){
     Intent i = new Intent(this,ConversionActivity.class);
     String s = v.getTag().toString();
+    i.putExtra(s,"conversion_type");
     startActivity(i);
     }
 }
