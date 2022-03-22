@@ -12,10 +12,7 @@ public class ConversionActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_conversion);
-        text = (TextView)findViewById(R.id.textView);
-
         Intent i = getIntent();
         String s = i.getStringExtra("conversion_type");
-        text.setText(s);
     }
 }
