@@ -15,6 +15,10 @@ return new class extends Migration
     {
         Schema::create('conversions', function (Blueprint $table) {
             $table->id();
+            $table->double('amount');
+            $table->double('rate');
+            $table->double('converted_amount');
+            $table->string('currency');
             $table->timestamps();
         });
     }
