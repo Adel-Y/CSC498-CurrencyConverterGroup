@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Api\ConversionController;
+use App\Http\Controllers\Api\RateController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -18,4 +20,6 @@ use Illuminate\Support\Facades\Route;
 //    return $request->user();
 //});
 
-Route::resource('conversions', \App\Http\Controllers\ConversionController::class)->only('store');
+Route::resource('conversions', ConversionController::class)->only('store');
+
+Route::get('rate', [RateController::class, 'getRate'])->name('rate.get');
