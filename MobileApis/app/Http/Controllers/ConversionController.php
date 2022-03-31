@@ -32,7 +32,7 @@ class ConversionController extends Controller
         //check to what i should convert
         if ($request->convert_to == "USD"){
             $converted_amount = $request->amount / $request->rate;
-        }else if ($request->convert_to == "LPB"){
+        }else if ($request->convert_to == "LBP"){
             $converted_amount = $request->amount * $request->rate;
         }else{
             return response()->json([
