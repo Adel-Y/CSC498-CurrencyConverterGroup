@@ -46,7 +46,7 @@ class ConversionController extends Controller
         Conversion::create([
             'amount' => $request->amount,
             'rate' => $request->rate,
-            'converted_amount' => $request->converted_amount,
+            'converted_amount' => $converted_amount,
             'currency' => $request->currency,
         ]);
 
