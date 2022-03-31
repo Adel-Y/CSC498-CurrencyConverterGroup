@@ -17,7 +17,6 @@ class ConversionController extends Controller
             $this->validate($request, [
                 'amount' => 'required',
                 'rate' => 'required',
-                'converted_amount' => 'required',
                 'currency' => 'required',
                 'convert_to' => 'required'
             ]);
