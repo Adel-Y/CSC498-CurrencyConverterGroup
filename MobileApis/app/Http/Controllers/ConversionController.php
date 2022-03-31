@@ -43,7 +43,7 @@ class ConversionController extends Controller
         }
 
         //store in db
-        Conversion::create([
+        $conversion = Conversion::create([
             'amount' => $request->amount,
             'rate' => $request->rate,
             'converted_amount' => $converted_amount,
@@ -55,7 +55,9 @@ class ConversionController extends Controller
             'code' => 200,
             'message' => 'Amount converted successfully',
             'data' => [
-                'converted_amount' => $converted_amount
+                'converted_amount' => $converted_amount,
+                'currency' => $conversion->currency,
+                'to_display' => $converted_amount.$conversion->currency
             ],
         ]);
     }
