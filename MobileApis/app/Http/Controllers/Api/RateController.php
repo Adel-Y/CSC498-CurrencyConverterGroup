@@ -10,7 +10,7 @@ class RateController extends Controller
 {
     public function getRate(){
         $url = "https://lirarate.org/wp-json/lirarate/v2/rates?currency=LBP&_ver=t202233121";
-        $lira = Http::get($url)->json();
+        $lira = collect(Http::get($url)->json());
 
         return $lira;
     }
