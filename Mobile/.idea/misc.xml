@@ -5,6 +5,7 @@
       <map>
         <entry key="app/src/main/res/layout/activity_conversion.xml" value="0.2998063864322763" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2325077423905079" />
+        <entry key="app/src/main/res/xml/network_security_config.xml" value="0.1" />
       </map>
     </option>
   </component>
