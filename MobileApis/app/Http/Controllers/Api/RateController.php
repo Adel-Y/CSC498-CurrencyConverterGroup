@@ -12,7 +12,7 @@ class RateController extends Controller
 
         try {
             $url = "https://lirarate.org/wp-json/lirarate/v2/rates?currency=LBP&_ver=t20224221";
-            $lira = collect(Http::get($url)->json('buy')); //if the api was block, 23500 by defaul
+            $lira = collect(Http::get($url)->json('buy')); //if the api was block, 23500 by default
             $rate = $lira->last()[1] ?? 23500;
         }catch (\Throwable $exception){
             response()->json([

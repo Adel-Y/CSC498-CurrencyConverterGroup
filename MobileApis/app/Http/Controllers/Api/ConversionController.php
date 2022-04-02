@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 
+use App\Http\Controllers\Controller;
 use App\Models\Api\Conversion;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
@@ -28,18 +29,11 @@ class ConversionController extends Controller
             ]);
         }
 
-
         //check to what i should convert
-        if ($request->convert_to == "USD"){
+        if ($request->convert_to == 'USD'){
             $converted_amount = $request->amount / $request->rate;
         }else if ($request->convert_to == "LBP"){
             $converted_amount = $request->amount * $request->rate;
-        }else{
-            return response()->json([
-                'code' => 400,
-                'message' => 'Invalid converted_to.',
-                'data' => null
-            ]);
         }
 
         //store in db
@@ -54,11 +48,9 @@ class ConversionController extends Controller
         return response()->json([
             'code' => 200,
             'message' => 'Amount converted successfully',
-            'data' => [
-                'converted_amount' => $converted_amount,
-                'currency' => $conversion->currency,
-                'to_display' => $converted_amount.$conversion->currency
-            ],
+            'converted_amount' => $converted_amount,
+            'currency' => $conversion->currency,
+            'to_display' => $converted_amount.$conversion->currency
         ]);
     }
 }
