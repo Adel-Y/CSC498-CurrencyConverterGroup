@@ -11,9 +11,9 @@ class RateController extends Controller
     public function getRate(){
 
         try {
-            $url = "https://lirarate.org/wp-json/lirarate/v2/rates?currency=LBP&_ver=t202233121";
-            $lira = collect(Http::get($url)->json('buy'));
-            $rate = $lira->last()[1];
+            $url = "https://lirarate.org/wp-json/lirarate/v2/rates?currency=LBP&_ver=t20224221";
+            $lira = collect(Http::get($url)->json('buy')); //if the api was block, 23500 by defaul
+            $rate = $lira->last()[1] ?? 23500;
         }catch (\Throwable $exception){
             response()->json([
                 'code' => 200,
@@ -25,9 +25,7 @@ class RateController extends Controller
         return response()->json([
             'code' => 200,
             'message' => 'Rate was retrieved successfully',
-            'data' => [
-                'rate' => $rate,
-            ],
+            'rate' => $rate,
         ]);
     }
 }
